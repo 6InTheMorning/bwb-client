@@ -28,7 +28,8 @@ code {
   top: 0px;
   height: 100%;
   overflow: scroll;
-  background-color: aqua;
+  background-color: white;
+  color: black;
   padding: 10px;
   margin-right: 500px;
 }
@@ -45,4 +46,14 @@ code {
   height: 30px;
   right: 0px;
   margin-right: 500px;
+}
+#meetingListContainer {
+  float: left;
+}
+#activeMeetingList {
+  float: left;
+  background-color: aliceblue;
+}
+.map {
+  float: left;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import fetchHelper from "../helpers/fetch"
+import fetchHelper from "../helpers/fetch";
+import "../App.css";
 class Signup extends Component {
   id_check = false;
   nickname_check = false;
@@ -9,7 +10,8 @@ class Signup extends Component {
       alert("아이디를 입력해주세요!");
       return false;
     }
-    fetchHelper.fetchSignup_IdCheck(id)
+    fetchHelper
+      .fetchSignup_IdCheck(id)
       .then(response => {
         return response.json();
       })
@@ -30,7 +32,8 @@ class Signup extends Component {
       alert("닉네임을 입력해주세요!");
       return false;
     }
-    fetchHelper.fetchSignup_NickNameCheck(nick_name)
+    fetchHelper
+      .fetchSignup_NickNameCheck(nick_name)
       .then(response => {
         return response.json();
       })
@@ -99,11 +102,12 @@ class Signup extends Component {
       <div className="signup">
         <h2>회원가입</h2>
         <form
+          className="signup-form"
           onSubmit={e => {
             e.preventDefault();
             console.log(
               document.querySelector(".isPwCheck").innerHTML ===
-              "비밀번호가 일치하지 않습니다"
+                "비밀번호가 일치하지 않습니다"
             );
             if (this.id_check === false) {
               alert("아이디 중복확인을 해주세요!");
@@ -140,7 +144,7 @@ class Signup extends Component {
               this.pwCheck === true &&
               this.nickname_check === true &&
               document.querySelector(".isPwCheck").innerHTML ===
-              "비밀번호가 일치합니다"
+                "비밀번호가 일치합니다"
             ) {
               var user = {
                 id: e.target.id.value,
@@ -148,7 +152,8 @@ class Signup extends Component {
                 nick_name: e.target.nick_name.value,
                 gender: e.target.gender.value
               };
-              fetchHelper.fetchSignup(user)
+              fetchHelper
+                .fetchSignup(user)
                 .then(response => {
                   console.log(response.status);
                   if (response.status === 201) {

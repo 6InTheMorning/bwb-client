@@ -27,7 +27,7 @@ class SearchButton extends Component {
   render() {
     return (
       <Fragment>
-        <Button variant="outlined" color='primary' onClick={this.props.handleClickSearch} style={{ fontSize: 30, margin:0, background: grey[50]}} >
+        <Button variant="outlined" color='primary' onClick={this.props.handleClickSearch} style={{ fontSize: 30,margin:0, background: grey[50]}} >
           Search
         </Button>
       </Fragment>

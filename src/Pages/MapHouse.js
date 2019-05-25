@@ -52,7 +52,7 @@ class MapHouse extends Component {
 
     var request = {
       location: site,
-      radius: "130",
+      radius: "100",
       type: ["restaurant"]
     };
 
@@ -69,7 +69,6 @@ class MapHouse extends Component {
           });
           this.createMarkers(lat, lng, results, map);
           // map.setCenter(results[0].geometry.location);
-          // this.meetingsInfos = this.bringMeetingData(results);
         }
       }
     });
@@ -104,8 +103,6 @@ class MapHouse extends Component {
             restaurantInfos: results
           });
           this.createMarkers(newLat, newLng, results, map);
-          // map.setCenter(results[0].geometry.location);
-          // this.meetingsInfos = this.bringMeetingData(results);
         }
       }
     });
@@ -151,8 +148,7 @@ class MapHouse extends Component {
           placeId = place.place_id
         ) => {
           return (() => {    
-            infowindow.close()
-            
+            infowindow.close();
             infowindow.open(locationMarker.latLng, thisMarker);
             var service = new google.maps.places.PlacesService(map);
             service.getDetails({ placeId: placeId }, (place, status) => {

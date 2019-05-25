@@ -77,9 +77,7 @@ class MeetingListsContainer extends React.Component {
         } else if (identifier === "모임 생성") {
           fetchHelper.createNewMeeting(meetingId).then(result => {
             alert("모임이 생성되었습니다.");
-            this.setState({
-              showNewMeetingModal: !this.state.showNewMeetingModal
-            });
+            this.toggleNewMeetingModal();
             this.props.fetchMeetingLists(
               new Array(this.props.clickMarkerRestaurantInfo)
             );
@@ -124,7 +122,7 @@ class MeetingListsContainer extends React.Component {
     });
   };
 
-  
+
 
   getNewMeetingModal = () => {
     if (!localStorage.getItem("token")) {

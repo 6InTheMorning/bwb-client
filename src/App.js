@@ -41,12 +41,11 @@ class App extends Component {
 
   handleClickSearch = () => {
     let data = document.querySelector('.searchSection')
-    let hi = data.lastChild.lastChild.lastChild.lastChild.data
-      console.log(hi)
-      // this.setState({
-      //   searchValue: ,
-      // });
-    
+    let input = data.firstChild.lastChild.lastChild.lastChild.lastChild.lastChild.value
+      
+      this.setState({
+        searchValue: input,
+      });
   }
 
   handleSearch = e => {

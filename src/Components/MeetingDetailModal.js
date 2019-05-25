@@ -95,7 +95,7 @@ const MeetingDetailModal = props => {
           <h3><strong>참가자</strong></h3>{"  "}
           {displayParticipants(props.data).displayNames}
           
-          <span>{"  =>   "}</span>
+          <span>{"  ➜   "}</span>
           <img className="numOfParticipants"
                 src="https://i.ibb.co/pyW3HKh/baseline-people-outline-white-18dp.png"
                 alt="baseline-people-outline-pink"

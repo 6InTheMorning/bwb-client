@@ -39,6 +39,16 @@ class App extends Component {
     }
   };
 
+  handleClickSearch = () => {
+    let data = document.querySelector('.searchSection')
+    let hi = data.lastChild.lastChild.lastChild.lastChild.data
+      console.log(hi)
+      // this.setState({
+      //   searchValue: ,
+      // });
+    
+  }
+
   handleSearch = e => {
     if (e.key === "Enter") {
       if (!e.target.value.length) {

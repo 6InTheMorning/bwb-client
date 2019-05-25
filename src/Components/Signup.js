@@ -199,7 +199,7 @@ class Signup extends Component {
                   .then(response => {
                     console.log(response.status);
                     if (response.status === 201) {
-                      window.location.href = "/login";
+                      window.location.href = "http://production-bwb-client.s3-website.ap-northeast-2.amazonaws.com/login";
                       return response;
                     }
 

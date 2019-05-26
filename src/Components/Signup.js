@@ -69,16 +69,16 @@ class Signup extends Component {
       return false;
     }
     fetchHelper.fetchSignup_IdCheck(id)
-    .then(response => {
-      return response.json();
-    })
-    .then(check => {
-      if (check === 0) {
-        // alert("사용이 가능한 아이디 입니다");
-        document.querySelector(".verifyId").innerHTML = "사용가능한 아이디 입니다".fontcolor("green");
-        this.id_check = true;
-      } else if (check >= 1) {
-        document.querySelector(".verifyId").innerHTML = "이미 사용중인 아이디 입니다";
+      .then(response => {
+        return response.json();
+      })
+      .then(check => {
+        if (check === 0) {
+          // alert("사용이 가능한 아이디 입니다");
+          document.querySelector(".verifyId").innerHTML = "사용가능한 아이디 입니다".fontcolor("green");
+          this.id_check = true;
+        } else if (check >= 1) {
+          document.querySelector(".verifyId").innerHTML = "이미 사용중인 아이디 입니다";
           // alert("이미 사용중인 아이디 입니다");
         }
       })
@@ -118,7 +118,7 @@ class Signup extends Component {
     if (pw === "") {
       document.querySelector(".isPwCheck").innerText = "비밀번호를 입력해주세요";
       return false;
-    } 
+    }
     if (!regType1.test(pw)) {
       document.querySelector(".isPwCheck").innerText = "비밀번호는 영문 대소문자 및 숫자 또는 특수문자 포함 6-20글자여야 합니다";
       return false;
@@ -214,10 +214,10 @@ class Signup extends Component {
             }}
           >
             <FormControl margin="normal" required fullWidth>
-              <InputLabel 
+              <InputLabel
                 htmlFor="id"
               >아이디</InputLabel>
-              <Input 
+              <Input
                 id="id"
                 name="id"
                 placeholder="4-8글자(한영,숫자)"
@@ -228,43 +228,43 @@ class Signup extends Component {
             </FormControl>
             <span className="verifyId">아이디를 입력해주세요</span>
             <FormControl margin="normal" required fullWidth>
-              <InputLabel 
+              <InputLabel
                 htmlFor="password"
               >비밀번호</InputLabel>
-              <Input 
+              <Input
                 type="password"
                 id="pw"
                 name="pw"
                 placeholder="6-20글자(영문 대소문자 최소 1개의 숫자 혹은 특수 문자 포함)"
                 onChange={e => {
-                this.isPwCheck(
-                  document.querySelector("#pw").value,
-                  document.querySelector("#pw_check").value
-                );
-              }} />
+                  this.isPwCheck(
+                    document.querySelector("#pw").value,
+                    document.querySelector("#pw_check").value
+                  );
+                }} />
             </FormControl>
             <FormControl margin="normal" required fullWidth>
-              <InputLabel 
+              <InputLabel
                 htmlFor="password"
               >비밀번호 확인</InputLabel>
-              <Input 
+              <Input
                 type="password"
                 id="pw_check"
                 name="pw_check"
                 placeholder="비밀번호 재입력"
                 onChange={e => {
-                this.isPwCheck(
-                  document.querySelector("#pw").value,
-                  document.querySelector("#pw_check").value
-                );
-              }} />
+                  this.isPwCheck(
+                    document.querySelector("#pw").value,
+                    document.querySelector("#pw_check").value
+                  );
+                }} />
             </FormControl>
             <span className="isPwCheck">비밀번호를 입력해주세요</span>
             <FormControl margin="normal" required fullWidth>
-              <InputLabel 
+              <InputLabel
                 htmlFor="nick_name"
               >닉네임</InputLabel>
-              <Input 
+              <Input
                 type="text"
                 id="nick_name"
                 name="nick_name"

@@ -138,6 +138,7 @@ class MeetingListsContainer extends React.Component {
     }
   };
 
+
   getNickname = async () => {
     return await fetchHelper
       .fetchNickname()
@@ -152,8 +153,20 @@ class MeetingListsContainer extends React.Component {
   // componentDidMount = () => {
   //     this.init();
   // };
+  dateFormat = (meetingTime) => {
+    let year = meetingTime.getFullYear();
+    let month = meetingTime.getMonth() + 1;
+    let date = meetingTime.getDate();
+    let time = meetingTime.toLocaleTimeString("en-US", { hour12: false }).slice(0, 5);
+    if (month.toString().length === 1) {
+      month = '0' + month;
+    }
+    return year + '-' + month + '-' + date + ' ' + time;
+  }
   placeNameDefinder = meetingListArr => {
+    console.log(meetingListArr)
     meetingListArr.forEach(e => {
+      e.meetingTime = this.dateFormat(new Date(e.meetingTime));
       for (let i = 0; i < this.props.restaurantInfos.length; i++) {
         if (this.props.restaurantInfos[i].place_id === e.placeId) {
           e.restaurantName = this.props.restaurantInfos[i].name;
@@ -163,6 +176,7 @@ class MeetingListsContainer extends React.Component {
   };
 
   activationFilter = meetingListArr => {
+    console.log(meetingListArr)
     this.placeNameDefinder(meetingListArr);
     let result = {};
     let activeMeetings = [];

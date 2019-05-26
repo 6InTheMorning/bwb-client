@@ -49,6 +49,7 @@ class MeetingListsContainer extends React.Component {
       );
       if (response) {
         this.props.history.push("/login");
+        this.toggleMeetingDetailModal();
       }
     } else if (identifier) {
       if (!localStorage.getItem("token")) {
@@ -57,6 +58,7 @@ class MeetingListsContainer extends React.Component {
         );
         if (response) {
           this.props.history.push("/login");
+          this.toggleMeetingDetailModal();
         }
       } else {
         if (identifier === "참가하기") {

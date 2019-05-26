@@ -13,6 +13,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { withRouter } from "react-router-dom";
 
 const styles = theme => ({
   signup: {
@@ -199,7 +200,8 @@ class Signup extends Component {
                   .then(response => {
                     console.log(response.status);
                     if (response.status === 201) {
-                      window.location.href = "http://production-bwb-client.s3-website.ap-northeast-2.amazonaws.com/login";
+                      this.props.history.push("/login");
+                      // window.location.href = "http://production-bwb-client.s3-website.ap-northeast-2.amazonaws.com/login";
                       return response;
                     }
 
@@ -302,4 +304,4 @@ class Signup extends Component {
     );
   }
 }
-export default withStyles(styles)(Signup);
+export default withRouter(withStyles(styles)(Signup));
